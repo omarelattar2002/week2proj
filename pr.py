@@ -1,29 +1,46 @@
-products = ['Milk', 'Eggs', 'Salmon', 'Yogurt', 'Butter', 'Chips']
+cart = {}
+total_price = 0
+
+def adding_price():
+    price*price
 
 
+def add_to_cart(product, price, amount):
+    if product not in cart:
+        print("How many of this product woul you like to add? ")
+        cart[product]= {'price':price, 'quantity':amount}
+    else:
+        cart[product]['quantity'] += amount
+    return cart
 
-def add():
+
+def remove(product):
+    if product in cart:
+        del cart[product]
+        print('You have removed this product from your cart')
+
+def list_cart():
+    if not cart:
+        print("Your cart is empty")
+    else:
+        print(f"Here is your current {cart}")
 
 
-
-def shopping_cart():
-    cart = []
-    while True:
-        choice = input("Hello, What would you like to do with your cart please? select one of the following Add/Remove/Go to Checkout ").lower()
-        if choice == 'Go to Checkout'.lower():
-            break
-        elif choice == 'Add'.lower():
-            add = input(f'What would you like to add from{products}? ')
+def main():
+    print("Hello welcome to omar's store")
+    options = input("what would you like to do today choose one of the following Add/Remove/list cart/quit").lower()
+    if options == "add":
+        product = input("What would you like to add to your cart? ")
+        price = input("How much does it cost?")
+        amount = input("Excellent, how many of this item would you like to add? ")
+        cart = add_to_cart(product,price,amount)
+    elif main == 'remove':
+        product = input("what would you like to remove? ")
+        remove(product)
+    elif options == 'list':
+        list_cart()
+    elif options == 'quit':
+        print(f"Thank you for shopping with us here is your current{cart}")
             
-            if add == 'Milk'.lower():
-                print(cart.append('Milk'.lower()))
-            print(cart)
-            additional_choice = input("Would you like to add anything else")
-            if additional_choice == 'add more items':
-                more_items = input('What would you like to add')
-                shopping_cart[more_items]
 
-#I still haven't finished I feel like there is a lot of confusion regarding functions I am going to do more work on it still
-
-
-shopping_cart()
+main()
