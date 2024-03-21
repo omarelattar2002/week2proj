@@ -1,4 +1,5 @@
 def add_to_cart(cart):
+    
     item = input("What would you like to add ? ").lower()
     if item in cart:
         amount = int(input("How many of this item would you like to add ? "))
@@ -6,7 +7,7 @@ def add_to_cart(cart):
     else:
         price = int(input("What is the price of your item ? "))
         amount = int(input("How many of this would you like to add ? "))
-        cart[item]['price': price, 'amount': amount]
+        cart[item] = {'price': price, 'amount': amount}
 
 
 def view_cart(cart):
@@ -14,9 +15,9 @@ def view_cart(cart):
     if not  cart:
         print("You don't have anything in your cart")
     else:
-        for key,value in cart:
-            print(f"Here is your current cart {key['amount']} {'item'} ${value['price']}")
-        total_price += key['amount'] * value['price']
+        for key,value in cart.items():
+            print(f"Here is your current cart {value['amount']} {key} ${value['price']}")
+            total_price += value['amount'] * value['price']
         print(f"Here is your total {total_price}$")
 
 
